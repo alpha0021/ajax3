@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>DMP police database.</title>
+		<link rel="stylesheet" href="dmp.css" type="text/css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	</head>
+  <style>
+     body{
+        margin: 0 auto;
+        width:340px;
+        padding-top: 40px;
+      }
+
+  </style>
+	<body>
+	
+          <p>here are the  responsible  officers and their  ransk  who delivers the services as  desired</p>
+          <div style="background-color: #eee;text-align: center;border-radius: 8px " id="services">
+
+          </div>
+
+          <input   type="button" id="driver" value="services">
+
+          <script type="text/javascript" language="javascript">
+            $(document).ready(function(){
+              $("#driver").click(function(event){
+                  $.getJSON('services.json',function(d){
+                      $('#services').html('<p>clearence offcr:' + d.clearence + '</p>');
+                      $('#services').append('<p>passport offcr:' + d.passport + '</p>');
+                      $('#services').append('<p>gd offcr:' + d.gd + '</p>');
+                  });
+              });
+
+            });
+          </script>
+	</body>
+</html>
